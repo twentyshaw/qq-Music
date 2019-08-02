@@ -1,0 +1,45 @@
+{
+  "code": 0,
+  "data": {
+    "slider": [
+      {
+        "linkUrl": "https://y.qq.com/m/digitalbum/gold/index.html?openinqqmusic=1&_video=true&mid=002Tryw33HIGNP&g_f=shoujijiaodian",
+        "picUrl": "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1609822.jpg",
+        "id": 21902
+      },
+      {
+        "linkUrl": "http://y.qq.com/w/album.html?albummid=0004DeWk3BQJ0z",
+        "picUrl": "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1606031.jpg",
+        "id": 22307
+      },
+      {
+        "linkUrl": "https://y.qq.com/m/act/supervocal2/index.html?openinqqmusic=1&ADTAG=jiaodiantu",
+        "picUrl": "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1602207.jpg",
+        "id": 22232
+      },
+      {
+        "linkUrl": "https://y.qq.com/m/act/2019singchina/index.html?openinqqmusic=1&ADTAG=jiaodiantu",
+        "picUrl": "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1601852.jpg",
+        "id": 22225
+      },
+      {
+        "linkUrl": "https://y.qq.com/m/act/rapofchina2019/index.html?openinqqmusic=1&ADTAG=jiaodiantu&channelID=10000362",
+        "picUrl": "http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1602996.jpg",
+        "id": 22221
+      }
+    ],
+    "radioList": [
+      {
+        "picUrl": "http://y.gtimg.cn/music/photo/radio/track_radio_199_12_8.jpg",
+        "Ftitle": "热歌",
+        "radioid": 199
+      },
+      {
+        "picUrl": "http://y.gtimg.cn/music/photo/radio/track_radio_307_12_5.jpg",
+        "Ftitle": "一人一首招牌歌",
+        "radioid": 307
+      }
+    ],
+    "songList": []
+  }
+}

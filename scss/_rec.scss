@@ -1,0 +1,47 @@
+.rec-content{
+    margin: 0px 10px 7px;
+	h2{
+	    font-weight: normal;
+	    font-size: 16px;
+	    margin-bottom: 11px;
+	}
+	.radio-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		.radio-item{
+			width: calc(100%/2 - 5px);
+			a{
+				display: block;
+				background: #fff;
+				width: 100%;
+				position: relative;
+				img{
+					display: block;
+					max-width: 100%
+				}
+				p{
+					padding: 5px 7px 10px;
+					font-size: 14px;
+					color: #000;
+				}
+				.icon_play{
+					position: absolute;
+					display: block;
+					z-index: 10;
+					background-image: url(../images/icon.png);
+					background-repeat: no-repeat;
+					background-size: 24px 60px;
+					height: 24px;
+					bottom: 42px;
+					right: 8px;
+					width: 24px;
+					background-position: 0 0;
+				}
+			}
+		}
+		.radio-item:first-child{
+			margin-right: 10px;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+*{
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: $body-background;
+}

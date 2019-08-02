@@ -1,0 +1,12 @@
+.qq-slider {
+  width: 100%;
+  overflow: hidden; }
+  .qq-slider .qq-slider-wrap {
+    display: flex;
+    transition: all 0.8s; }
+    .qq-slider .qq-slider-wrap .qq-slider-item {
+      flex-basis: 100%; }
+      .qq-slider .qq-slider-wrap .qq-slider-item a {
+        display: block; }
+        .qq-slider .qq-slider-wrap .qq-slider-item a img {
+          width: 100%; }

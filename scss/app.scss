@@ -1,0 +1,60 @@
+@import "var";
+@import "rec";
+@import "reset";
+@import "slider";
+@import "nav";
+@import "helpers";
+@import "rank";
+
+#header{
+	padding-top: 80px;
+    background: $header-background;
+    width: 100%;
+}
+#header h1{
+	display: none;
+}
+.header-inner{
+	padding: 0 10px;
+	position: fixed;
+    height: $header-height;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 5px rgba(0,0,0,.02);
+    background: #fff;
+}
+#logo{
+	max-width: 100%;
+	height: 35px;
+	display: block;
+}
+.mod_footer{
+    padding: 15px 0 70px;
+}
+.version_tab{
+    text-align: center;
+    margin-bottom: 16px;
+}
+.version_tab a{
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    color: #000;
+}
+.footer_logo{
+    display: block;
+    width: 82px;
+    height: 24px;
+    margin: 0 auto 10px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-indent: -9999px;
+}

@@ -1,0 +1,187 @@
+.rec-content {
+  margin: 0px 10px 7px; }
+  .rec-content h2 {
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 11px; }
+  .rec-content .radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .rec-content .radio-list .radio-item {
+      width: calc(100%/2 - 5px); }
+      .rec-content .radio-list .radio-item a {
+        display: block;
+        background: #fff;
+        width: 100%;
+        position: relative; }
+        .rec-content .radio-list .radio-item a img {
+          display: block;
+          max-width: 100%; }
+        .rec-content .radio-list .radio-item a p {
+          padding: 5px 7px 10px;
+          font-size: 14px;
+          color: #000; }
+        .rec-content .radio-list .radio-item a .icon_play {
+          position: absolute;
+          display: block;
+          z-index: 10;
+          background-image: url(../images/icon.png);
+          background-repeat: no-repeat;
+          background-size: 24px 60px;
+          height: 24px;
+          bottom: 42px;
+          right: 8px;
+          width: 24px;
+          background-position: 0 0; }
+    .rec-content .radio-list .radio-item:first-child {
+      margin-right: 10px; }
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #f4f4f4; }
+
+.qq-slider {
+  width: 100%;
+  overflow: hidden; }
+  .qq-slider .qq-slider-wrap {
+    display: flex;
+    transition: all 0.8s; }
+    .qq-slider .qq-slider-wrap .qq-slider-item {
+      flex-basis: 100%; }
+      .qq-slider .qq-slider-wrap .qq-slider-item a {
+        display: block; }
+        .qq-slider .qq-slider-wrap .qq-slider-item a img {
+          width: 100%; }
+
+.nav-bar .nav-list {
+  display: flex;
+  align-items: center; }
+  .nav-bar .nav-list .nav-item {
+    text-align: center;
+    flex: 1;
+    height: 40px;
+    line-height: 40px;
+    color: rgba(0, 0, 0, 0.6);
+    position: relative; }
+    .nav-bar .nav-list .nav-item.active {
+      color: #31c27c; }
+    .nav-bar .nav-list .nav-item.active:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #31c27c; }
+
+.hide {
+  display: none; }
+
+ul li.toplist {
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: flex;
+  background: #fff; }
+  ul li.toplist .top-image {
+    width: 100px;
+    height: 100px;
+    display: block; }
+    ul li.toplist .top-image img {
+      display: block;
+      height: 100%;
+      width: 100%; }
+  ul li.toplist .top-content {
+    flex: 1;
+    margin: 0 15px 0;
+    width: 50%;
+    position: relative; }
+    ul li.toplist .top-content h3, ul li.toplist .top-content .songlist li {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+    ul li.toplist .top-content h3 {
+      font-size: 16px;
+      color: #000;
+      font-weight: 400;
+      margin-bottom: 5px; }
+    ul li.toplist .top-content .songlist li {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.5); }
+      ul li.toplist .top-content .songlist li .song {
+        color: #000;
+        margin-left: 8px;
+        margin-right: 5px; }
+  ul li.toplist .top-content:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f054";
+    font-weight: 900;
+    position: absolute;
+    top: 45%;
+    right: -5px;
+    font-size: 12px;
+    color: #b2b2b2; }
+
+#header {
+  padding-top: 80px;
+  background: #fff;
+  width: 100%; }
+
+#header h1 {
+  display: none; }
+
+.header-inner {
+  padding: 0 10px;
+  position: fixed;
+  height: 80px;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02);
+  background: #fff; }
+
+#logo {
+  max-width: 100%;
+  height: 35px;
+  display: block; }
+
+.mod_footer {
+  padding: 15px 0 70px; }
+
+.version_tab {
+  text-align: center;
+  margin-bottom: 16px; }
+
+.version_tab a {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+  font-size: 14px;
+  height: 14px;
+  line-height: 14px;
+  color: #000; }
+
+.footer_logo {
+  display: block;
+  width: 82px;
+  height: 24px;
+  margin: 0 auto 10px;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-indent: -9999px; }
