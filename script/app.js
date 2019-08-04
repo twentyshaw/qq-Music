@@ -8,6 +8,8 @@
 	 	renderRadio(json.data.radioList)
 	 }
 
+	 let search = new Search(document.querySelector("#search-view"))
+
 	 function renderSlider(slides){
 		 let sliders = slides.map(slide => {
 		 	return {link: slide.linkUrl, image:slide.picUrl}
@@ -29,7 +31,5 @@
 	 		`
 	 	).join("")
 	 }
-
-
 
 })()

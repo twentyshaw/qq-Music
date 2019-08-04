@@ -3,7 +3,6 @@ function lazyload(images){
 
 
 	let onscroll = throttle(function(){
-		console.log(new Date())
 		if (imgs.length === 0) {
 			return window.removeEventListener("scroll", onscroll)
 		}
@@ -15,8 +14,8 @@ function lazyload(images){
 		})
 	},400)
 
-window.addEventListener("scroll",onscroll)
-window.dispatchEvent(new Event("scroll")) //我为什么触发不了
+    window.addEventListener("scroll",onscroll)
+    window.dispatchEvent(new Event("scroll")) //我为什么触发不了
 
 	function inViewport(img){
 		let {top, bottom, left, right} = img.getBoundingClientRect()

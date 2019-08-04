@@ -49,7 +49,7 @@ html, body {
   padding: 0; }
 
 body {
-  background: #f4f4f4; }
+  background: #fff; }
 
 .qq-slider {
   width: 100%;
@@ -64,27 +64,29 @@ body {
         .qq-slider .qq-slider-wrap .qq-slider-item a img {
           width: 100%; }
 
-.nav-bar .nav-list {
-  display: flex;
-  align-items: center; }
-  .nav-bar .nav-list .nav-item {
-    text-align: center;
-    flex: 1;
-    height: 40px;
-    line-height: 40px;
-    color: rgba(0, 0, 0, 0.6);
-    position: relative; }
-    .nav-bar .nav-list .nav-item.active {
-      color: #31c27c; }
-    .nav-bar .nav-list .nav-item.active:after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #31c27c; }
+.nav-bar {
+  background: #fff; }
+  .nav-bar .nav-list {
+    display: flex;
+    align-items: center; }
+    .nav-bar .nav-list .nav-item {
+      text-align: center;
+      flex: 1;
+      height: 40px;
+      line-height: 40px;
+      color: rgba(0, 0, 0, 0.6);
+      position: relative; }
+      .nav-bar .nav-list .nav-item.active {
+        color: #31c27c; }
+      .nav-bar .nav-list .nav-item.active:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #31c27c; }
 
 .hide {
   display: none; }
@@ -134,6 +136,65 @@ ul li.toplist {
     font-size: 12px;
     color: #b2b2b2; }
 
+.search-bar {
+  background: #f4f4f4;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .search-bar .search-inner {
+    position: relative;
+    border-radius: 3px;
+    background: #fff;
+    padding: 8px 12px 8px 35px;
+    height: 20px;
+    flex: 1;
+    box-sizing: content-box; }
+    .search-bar .search-inner input {
+      height: 20px;
+      line-height: 20px;
+      width: 100%;
+      color: rgba(0, 0, 0, 0.3);
+      border: none;
+      -webkit-appearance: none;
+      font-size: 14px; }
+    .search-bar .search-inner .icon-search {
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      width: 18px;
+      height: 18px;
+      color: rgba(0, 0, 0, 0.3); }
+
+.search-results .song-item {
+  position: relative;
+  height: 55px;
+  padding-left: 56px;
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5; }
+  .search-results .song-item .icon-music {
+    background-image: url(../images/icon-music.png);
+    background-repeat: no-repeat;
+    background-size: 22px 30px;
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 22px;
+    height: 20px;
+    background-position: 0 0; }
+  .search-results .song-item div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  .search-results .song-item .song-name {
+    margin: 10px 0 2px;
+    line-height: 18px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000; }
+  .search-results .song-item .song-artist {
+    color: grey; }
+
 #header {
   padding-top: 80px;
   background: #fff;
@@ -161,7 +222,8 @@ ul li.toplist {
   display: block; }
 
 .mod_footer {
-  padding: 15px 0 70px; }
+  padding: 15px 0 70px;
+  background: #fff; }
 
 .version_tab {
   text-align: center;

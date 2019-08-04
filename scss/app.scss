@@ -5,6 +5,7 @@
 @import "nav";
 @import "helpers";
 @import "rank";
+@import "find";
 
 #header{
 	padding-top: 80px;
@@ -34,7 +35,9 @@
 }
 .mod_footer{
     padding: 15px 0 70px;
+    background: #fff;
 }
+
 .version_tab{
     text-align: center;
     margin-bottom: 16px;

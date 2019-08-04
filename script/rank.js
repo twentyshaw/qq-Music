@@ -6,7 +6,7 @@
 
 	function render(json){
 		renderToplist(json.req_0.data.group)
-        lazyload(document.querySelectorAll("#rank-view .toplist .lazyload"))	
+        lazyload(document.querySelectorAll("#rank-view .toplist .lazyload"))
 	}
 
 	function renderToplist(tops){

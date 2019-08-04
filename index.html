@@ -33,14 +33,31 @@
 		<div id="rank-view" class="hide tab-content">
 			<ul></ul>
 		</div>
-		<div id="search-view" class="hide tab-content">搜索</div>
+		<div id="search-view" class="hide tab-content">
+			<div class="search-bar">
+				<div class="search-inner">
+					<input id="search" type="text" placeholder="搜索歌曲、歌单、专辑">
+					<span class="icon-search"><i class="fas fa-search"></i></span>
+				</div>
+			</div>
+			<div class="search-results">
+				<ul class="song-list">
+				</ul>
+			</div>
+			<div class="search-loading hide">
+				<i class="loading-icon"></i>
+				<div class="loading-text">正在载入更多...</div>
+				<div class="loading-done hide">已加载全部</div>
+			</div>
+		</div>
 	</div>
 	<footer class="mod_footer"><div class="version_tab"><a href="https://y.qq.com/?ADTAG=myqq&amp;nomobile=1#type=index">查看电脑版网页</a></div><div class="footer_logo">QQ音乐</div></footer>
     <script type="text/javascript" src="./script/lazyloader.js"></script>
+    <script type="text/javascript" src="./script/search.js"></script>
 	<script type="text/javascript" src="./script/slider.js"></script>
 	<script type="text/javascript" src="./script/tab.js"></script>
 	<script type="text/javascript" src="./script/app.js"></script>
 	<script type="text/javascript" src="./script/rank.js"></script>
-
+	
 </body>
 </html>
