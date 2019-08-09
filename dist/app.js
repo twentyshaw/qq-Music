@@ -179,7 +179,7 @@ function () {
     value: function launch() {
       var _this = this;
 
-      fetch("/json/rec.json").then(function (res) {
+      fetch("../json/rec.json").then(function (res) {
         return res.json();
       }
       /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
@@ -309,7 +309,7 @@ function () {
     value: function launch() {
       var _this = this;
 
-      fetch("/json/rank.json").then(function (res) {
+      fetch("../json/rank.json").then(function (res) {
         return res.json().then(function (json) {
           return json.req_0.data.group;
         });
