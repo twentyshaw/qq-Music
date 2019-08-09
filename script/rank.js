@@ -7,7 +7,7 @@ export class Toplist{
 	}
 
 	launch(){
-		fetch("../json/rank.json")
+		fetch("./json/rank.json")
 		 .then(res=> res.json()
 		 	.then(json => json.req_0.data.group)
 		 	).then(json => this.render(json))
