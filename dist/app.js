@@ -485,7 +485,7 @@ function () {
       this.fetching = true; //用来防止每滚一下都发一次请求
 
       this.keyword = keyword;
-      fetch("http://localhost:4000/search?keyword=".concat(this.keyword, "&page=").concat(page || this.page)).then(function (res) {
+      fetch("/search?keyword=".concat(this.keyword, "&page=").concat(page || this.page)).then(function (res) {
         return res.json();
       }).then(function (json) {
         _this.page = json.data.song.curpage;
