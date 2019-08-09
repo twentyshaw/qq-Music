@@ -1,3 +1,5 @@
+import { searchUrl } from './helpers.js'
+
 export class Search {
 	constructor(el){
 		this.$el = el
@@ -39,7 +41,7 @@ export class Search {
 		if (this.fetching) return //用来防止每滚一下都发一次请求
 		this.fetching = true //用来防止每滚一下都发一次请求
 		this.keyword = keyword
-		fetch(`/search?keyword=${this.keyword}&page=${page || this.page}`)
+		fetch(searchUrl(this.keyword, page || this.page))
 		 .then(res => res.json())
 		  .then(json => {
 		  	this.page = json.data.song.curpage

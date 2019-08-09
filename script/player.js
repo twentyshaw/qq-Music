@@ -1,5 +1,6 @@
 import { ProgressBar } from "./progress-bar.js"
 import { Lyrics } from "./lyrics.js"
+import { songUrl, lyricsUrl, albumCoverUrl } from './helpers.js'
 
 export class MusicPlayer{
 	constructor(el){
@@ -73,17 +74,19 @@ export class MusicPlayer{
 		this.$el.querySelector(".singer-name").innerText = options.artist
 		this.progress.reset(options.duration)
                                                                     
-		let url = `https://y.gtimg.cn/music/photo_new/T002R300x300M000${options.albummid}.jpg?max_age=2592000`
+		let url = albumCoverUrl(options.albummid)
 		this.$el.querySelector(".album-img").src = url
 		this.$el.querySelector(".bg img").src = url
 
 		if (options.songid) {
 			console.log(options.songid)
-			this.$audio.src =`http://aqqmusic.tc.qq.com/amobile.music.tc.qq.com/C400002TRY4a3zfxC8.m4a?guid=5561900148&vkey=7D51FAD7826BC57DA7A012F8D5F54F7E6F965EDD2DB6145A5ED872924D492058813AE9692036C9CE330CA6F29B36B56117DA99CCE6D82F30&uin=0&fromtag=38`
-			fetch(`https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&nobase64=1&musicid=${options.songid}&songtype=0&_=1565247849296&jsonpCallback=jsonp1`)
-				.then(res=>res.json)
+			this.songid = options.songid
+			this.$audio.src =songUrl(this.songid)
+			console.log(lyricsUrl(this.songid))
+			fetch(lyricsUrl(this.songid))
+				.then(res=>res.json())
 				 .then(json=>json.lyric)
-				  .then(text=>this.Lyrics.reset(text))
+				  .then(text=>this.lyrics.reset(text))
 				   .catch(()=>{})
 		}
 		this.show()

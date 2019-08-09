@@ -1,3 +1,5 @@
+import { RECOMMEND_URL } from './constants.js'
+
 export class Radio{
 	constructor(el){
 		this.$el = el
@@ -5,7 +7,7 @@ export class Radio{
 	}
 
 	launch(){
-		fetch("./json/rec.json")
+		fetch(RECOMMEND_URL)
 		.then(res=> res.json() /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
 		).then(json => json.data.radioList)
 		 .then(json => this.render(json))

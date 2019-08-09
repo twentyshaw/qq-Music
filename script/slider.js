@@ -1,3 +1,5 @@
+import { RECOMMEND_URL } from './constants.js'
+
 export class Slider{
 	constructor(el,interval){
 		this.$el = el
@@ -9,7 +11,7 @@ export class Slider{
 	}
 
 	launch(){
-		fetch("./json/rec.json")
+		fetch(RECOMMEND_URL)
 		.then(res=> res.json() /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
 		).then(json => json.data.slider)
 		 .then(json => this.render(json))
@@ -18,7 +20,10 @@ export class Slider{
 
 	render(sliders){
 		this.slides = sliders.map(slide => {
-			 	return {link: slide.linkUrl, image:slide.picUrl}
+			 	return {
+			 		link: slide.linkUrl.replace('http://', 'https://'),
+			 		image:slide.picUrl.replace('http://', 'https://')
+			 	}
 			 })
 		this.$el.innerHTML = `<div class="qq-slider-wrap"></div>`
 		this.$wrap = this.$el.firstChild

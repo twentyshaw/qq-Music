@@ -10,7 +10,6 @@ export class Lyrics{
 		this.reset(this.text)
 	}
 	start(){
-		console.log("1")
 		this.intervalId = setInterval(this.update.bind(this), 1000)
 	}
 
@@ -19,7 +18,6 @@ export class Lyrics{
 	}
 
 	update(){
-		console.log("2")
 		this.elapsed += 1
 		if (this.index === this.lyrics.length - 1 ) return this.reset()
 		for (let i = this.index + 1; i < this.lyrics.length; i++) {

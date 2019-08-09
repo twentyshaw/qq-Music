@@ -60,11 +60,25 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RECOMMEND_URL; });
+/* unused harmony export TOPLIST_URL */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return SEARCH_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LYRICS_URL; });
+var RECOMMEND_URL = 'https://qq-music-api.now.sh';
+var TOPLIST_URL = 'https://qq-music-api.now.sh/top';
+var SEARCH_URL = 'https://qq-music-api.now.sh/search';
+var LYRICS_URL = 'https://qq-music-api.now.sh/lyrics';
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 var targets = document.querySelectorAll(".nav-item");
@@ -86,18 +100,43 @@ targets.forEach(function (target) {
 });
 
 /***/ }),
-/* 1 */
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["d"] = songUrl;
+/* harmony export (immutable) */ __webpack_exports__["b"] = lyricsUrl;
+/* harmony export (immutable) */ __webpack_exports__["a"] = albumCoverUrl;
+/* harmony export (immutable) */ __webpack_exports__["c"] = searchUrl;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants_js__ = __webpack_require__(0);
+
+function songUrl(id) {
+  return "http://ws.stream.qqmusic.qq.com/".concat(id, ".m4a?fromtag=46");
+}
+function lyricsUrl(songid) {
+  return "".concat(__WEBPACK_IMPORTED_MODULE_0__constants_js__["a" /* LYRICS_URL */], "?id=").concat(songid);
+}
+function albumCoverUrl(id) {
+  return "https://y.gtimg.cn/music/photo_new/T002R150x150M000".concat(id, ".jpg");
+}
+function searchUrl(keyword) {
+  var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  return "".concat(__WEBPACK_IMPORTED_MODULE_0__constants_js__["c" /* SEARCH_URL */], "?keyword=").concat(keyword, "&page=").concat(page);
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tab_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tab_js__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tab_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__tab_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__slider_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__radio_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rank_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__player_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__slider_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__radio_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rank_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__search_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__player_js__ = __webpack_require__(9);
 
 
 
@@ -149,16 +188,18 @@ onHashChange();
 window.addEventListener("hashchange", onHashChange);
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Slider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants_js__ = __webpack_require__(0);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var Slider =
 /*#__PURE__*/
@@ -179,7 +220,7 @@ function () {
     value: function launch() {
       var _this = this;
 
-      fetch("./json/rec.json").then(function (res) {
+      fetch(__WEBPACK_IMPORTED_MODULE_0__constants_js__["b" /* RECOMMEND_URL */]).then(function (res) {
         return res.json();
       }
       /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
@@ -195,8 +236,8 @@ function () {
     value: function render(sliders) {
       this.slides = sliders.map(function (slide) {
         return {
-          link: slide.linkUrl,
-          image: slide.picUrl
+          link: slide.linkUrl.replace('http://', 'https://'),
+          image: slide.picUrl.replace('http://', 'https://')
         };
       });
       this.$el.innerHTML = "<div class=\"qq-slider-wrap\"></div>";
@@ -231,16 +272,18 @@ function () {
 }();
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Radio; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants_js__ = __webpack_require__(0);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var Radio =
 /*#__PURE__*/
@@ -257,7 +300,7 @@ function () {
     value: function launch() {
       var _this = this;
 
-      fetch("./json/rec.json").then(function (res) {
+      fetch(__WEBPACK_IMPORTED_MODULE_0__constants_js__["b" /* RECOMMEND_URL */]).then(function (res) {
         return res.json();
       }
       /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
@@ -281,12 +324,12 @@ function () {
 }();
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Toplist; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lazyloader_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lazyloader_js__ = __webpack_require__(7);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -351,29 +394,45 @@ function () {
 }();
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = lazyload;
 function lazyload(images) {
-  var imgs = Array.prototype.slice.call(images);
-  var onscroll = throttle(function () {
-    if (imgs.length === 0) {
-      return window.removeEventListener("scroll", onscroll);
-    }
+  var imgs = [].slice.call(images || document.querySelectorAll('.lazyload')); // Array.from(images)
 
-    imgs = imgs.filter(function (img) {
-      return img.classList.contains("lazyload");
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio > 0) {
+          loadImage(entry.target, function () {
+            observer.unobserve(entry.target);
+          });
+        }
+      });
+    }, {
+      threshold: 0.01
     });
     imgs.forEach(function (img) {
-      if (inViewport(img)) {
-        loadImage(img);
-      }
+      return observer.observe(img);
     });
-  }, 400);
-  window.addEventListener("scroll", onscroll);
-  window.dispatchEvent(new Event("scroll")); //我为什么触发不了
+  } else {
+    var onscroll = throttle(function () {
+      if (imgs.length === 0) {
+        return window.removeEventListener('scroll', onscroll);
+      }
+
+      imgs = imgs.filter(function (img) {
+        return img.classList.contains('lazyload');
+      });
+      imgs.forEach(function (img) {
+        return inViewport(img) && loadImage(img);
+      });
+    }, 300);
+    window.addEventListener('scroll', onscroll);
+    window.dispatchEvent(new Event('scroll'));
+  }
 }
 
 function inViewport(img) {
@@ -417,16 +476,18 @@ function throttle(func, wait) {
 }
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Search; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_js__ = __webpack_require__(2);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 var Search =
 /*#__PURE__*/
@@ -485,7 +546,7 @@ function () {
       this.fetching = true; //用来防止每滚一下都发一次请求
 
       this.keyword = keyword;
-      fetch("/search?keyword=".concat(this.keyword, "&page=").concat(page || this.page)).then(function (res) {
+      fetch(Object(__WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* searchUrl */])(this.keyword, page || this.page)).then(function (res) {
         return res.json();
       }).then(function (json) {
         _this.page = json.data.song.curpage;
@@ -520,18 +581,20 @@ function () {
 }();
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MusicPlayer; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__progress_bar_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lyrics_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__progress_bar_js__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lyrics_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_js__ = __webpack_require__(2);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -627,19 +690,21 @@ function () {
       this.$el.querySelector(".song-name").innerText = options.songname;
       this.$el.querySelector(".singer-name").innerText = options.artist;
       this.progress.reset(options.duration);
-      var url = "https://y.gtimg.cn/music/photo_new/T002R300x300M000".concat(options.albummid, ".jpg?max_age=2592000");
+      var url = Object(__WEBPACK_IMPORTED_MODULE_2__helpers_js__["a" /* albumCoverUrl */])(options.albummid);
       this.$el.querySelector(".album-img").src = url;
       this.$el.querySelector(".bg img").src = url;
 
       if (options.songid) {
         console.log(options.songid);
-        this.$audio.src = "http://aqqmusic.tc.qq.com/amobile.music.tc.qq.com/C400002TRY4a3zfxC8.m4a?guid=5561900148&vkey=7D51FAD7826BC57DA7A012F8D5F54F7E6F965EDD2DB6145A5ED872924D492058813AE9692036C9CE330CA6F29B36B56117DA99CCE6D82F30&uin=0&fromtag=38";
-        fetch("https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&nobase64=1&musicid=".concat(options.songid, "&songtype=0&_=1565247849296&jsonpCallback=jsonp1")).then(function (res) {
-          return res.json;
+        this.songid = options.songid;
+        this.$audio.src = Object(__WEBPACK_IMPORTED_MODULE_2__helpers_js__["d" /* songUrl */])(this.songid);
+        console.log(Object(__WEBPACK_IMPORTED_MODULE_2__helpers_js__["b" /* lyricsUrl */])(this.songid));
+        fetch(Object(__WEBPACK_IMPORTED_MODULE_2__helpers_js__["b" /* lyricsUrl */])(this.songid)).then(function (res) {
+          return res.json();
         }).then(function (json) {
           return json.lyric;
         }).then(function (text) {
-          return _this.Lyrics.reset(text);
+          return _this.lyrics.reset(text);
         })["catch"](function () {});
       }
 
@@ -667,7 +732,7 @@ function () {
 }();
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -749,7 +814,7 @@ function () {
 }();
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -779,7 +844,6 @@ function () {
   _createClass(Lyrics, [{
     key: "start",
     value: function start() {
-      console.log("1");
       this.intervalId = setInterval(this.update.bind(this), 1000);
     }
   }, {
@@ -790,7 +854,6 @@ function () {
   }, {
     key: "update",
     value: function update() {
-      console.log("2");
       this.elapsed += 1;
       if (this.index === this.lyrics.length - 1) return this.reset();
 

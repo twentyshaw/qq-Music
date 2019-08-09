@@ -1,22 +1,30 @@
-export function lazyload(images){
-	let imgs = Array.prototype.slice.call(images)
+export function lazyload(images) {
+  let imgs = [].slice.call(images || document.querySelectorAll('.lazyload'))  // Array.from(images)
 
-
-	let onscroll = throttle(function(){
-		if (imgs.length === 0) {
-			return window.removeEventListener("scroll", onscroll)
-		}
-		imgs = imgs.filter(img => img.classList.contains("lazyload"))
-		imgs.forEach(img => {
-			if (inViewport(img)) {
-				loadImage(img)
-			}
-		})
-	},400)
-
-    window.addEventListener("scroll",onscroll)
-    window.dispatchEvent(new Event("scroll")) //我为什么触发不了
-
+  if ('IntersectionObserver' in window) {
+    let observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.intersectionRatio > 0) {
+          loadImage(entry.target, () => {
+            observer.unobserve(entry.target)
+          })
+        }
+      })
+    }, { threshold: 0.01 })
+  
+    imgs.forEach(img => observer.observe(img))
+  } else {
+    let onscroll = throttle(function() {
+      if (imgs.length === 0) {
+        return window.removeEventListener('scroll', onscroll)
+      }
+      imgs = imgs.filter(img => img.classList.contains('lazyload'))
+      imgs.forEach(img => inViewport(img) && loadImage(img))
+    }, 300)
+  
+    window.addEventListener('scroll', onscroll)
+    window.dispatchEvent(new Event('scroll'))
+  }
 }
 
 function inViewport(img){
