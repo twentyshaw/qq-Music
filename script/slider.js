@@ -9,7 +9,7 @@ export class Slider{
 	}
 
 	launch(){
-		fetch("../json/rec.json")
+		fetch("/json/rec.json")
 		.then(res=> res.json() /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
 		).then(json => json.data.slider)
 		 .then(json => this.render(json))
