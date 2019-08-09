@@ -1,35 +1,50 @@
-(function(){
-	fetch("../json/rec.json")
-	 .then(res=> res.json() /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
-	 ).then(render)
+import "./tab.js"
+import "./tab.js"
+import { Slider } from "./slider.js"
+import { Radio } from "./radio.js"
+import { Toplist } from "./rank.js"
+import { Search } from "./search.js"
+import { MusicPlayer } from "./player.js"
 
-	 function render(json){
-	 	renderSlider(json.data.slider)
-	 	renderRadio(json.data.radioList)
-	 }
 
-	 let search = new Search(document.querySelector("#search-view"))
+ let slider = new Slider(document.querySelector("#slider"))
+ let radio = new Radio(document.querySelector(".radio-list"))
+ let toplist = new Toplist(document.querySelector("#rank-view"))
+ let search = new Search(document.querySelector("#search-view"))
+ let musicplayer = new MusicPlayer(document.querySelector("#player"))
 
-	 function renderSlider(slides){
-		 let sliders = slides.map(slide => {
-		 	return {link: slide.linkUrl, image:slide.picUrl}
-		 })
-		 let slider = new Slider({
-		    el: document.querySelector("#slider"),
-			slides: sliders
-		 })
-	 }
 
-	 function renderRadio(radios){
-	 	document.querySelector(".radio-list").innerHTML = radios.map(radio =>
-	 		`
-				<li class="radio-item"><a href="#">
-					<img src="${radio.picUrl}">
-					<span class="icon icon_play"></span>
-					<p>${radio.Ftitle}</p>
-				</a></li>
-	 		`
-	 	).join("")
-	 }
+ let playerBtn = document.querySelector("#player-btn")
+ playerBtn.addEventListener("click",showPlayer)
 
-})()
+ function showPlayer(){
+ 	let music = document.querySelector("#player")
+ 	if (music.classList.contains("show")) {
+ 		music.classList.remove("show")
+ 		music.classList.add("hide")
+ 	}else{
+ 		music.classList.remove("hide")
+ 		music.classList.add("show")
+ 	}
+ }
+
+
+ function onHashChange(){
+ 	let hash = location.hash
+ 	if (/^#player\?.+/.test(hash)) {
+ 		let matchs = hash.slice(hash.indexOf("?")+1).match(/(\w+)=([^&]+)/g)
+ 		let options = matchs && matchs.reduce((res,cur) => {
+ 			let arr = cur.split("=")
+ 			res[arr[0]] = decodeURI(arr[1]) //记得转码
+ 			return res
+ 		}, {}) // 为啥有个空的
+ 		console.log(options)
+ 		musicplayer.play(options)
+ 		musicplayer.show()
+ 	}else{
+ 		musicplayer.hide()
+ 	}
+ }
+
+ onHashChange()
+ window.addEventListener("hashchange", onHashChange)

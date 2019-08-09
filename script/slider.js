@@ -1,14 +1,25 @@
-class Slider{
-	constructor(options){
-		this.$el = options.el
-		this.slides = options.slides
-		this.interval = options.interval || 3000
+export class Slider{
+	constructor(el,interval){
+		this.$el = el
+		this.slides = {}
+		this.interval = interval || 3000
 		this.index = 0 
 		this.start()
-		this.render()
+		this.launch()
 	}
 
-	render(){
+	launch(){
+		fetch("../json/rec.json")
+		.then(res=> res.json() /*因为得到的响应还不是一个json对象，需要用 json() 来把它转化为json对象*/
+		).then(json => json.data.slider)
+		 .then(json => this.render(json))
+		return this
+	}
+
+	render(sliders){
+		this.slides = sliders.map(slide => {
+			 	return {link: slide.linkUrl, image:slide.picUrl}
+			 })
 		this.$el.innerHTML = `<div class="qq-slider-wrap"></div>`
 		this.$wrap = this.$el.firstChild
 		this.$wrap.style.width = `${this.slides.length * 100}%`

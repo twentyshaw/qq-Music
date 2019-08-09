@@ -33,7 +33,8 @@
 }
 
 .search-results{
-	.song-item{
+	.song-item a{
+		display: block;
 		position: relative;
 	    height: 55px;
 	    padding-left: 56px;

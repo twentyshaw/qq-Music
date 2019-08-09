@@ -1,4 +1,4 @@
-class Search {
+export class Search {
 	constructor(el){
 		this.$el = el
 		this.$input = this.$el.querySelector("#search")
@@ -45,6 +45,7 @@ class Search {
 		  	this.page = json.data.song.curpage
 		  	this.nomore = (json.message === "no results")
 		  	/*this.songs.push(...json.data.song.list) *///把请求到的json.data.song.list缓存起来
+		  	console.log(json.data.song.list)
 		  	return json.data.song.list
 		  })
 		   .then(songs => this.append(songs))
@@ -55,9 +56,11 @@ class Search {
 	append(songs){
 		let html = songs.map(song => 
 			`<li class="song-item">
+			 <a href="#player?artist=${song.singer[0].name}&songid=${song.songid}&songmid=${song.songmid}&songname=${song.songname}&albummid=${song.albummid}&duration=${song.interval}">
 				<i class="icon icon-music"></i>
 				<div class="song-name ellipsis">${song.songname}</div>
 				<div class="song-artist ellipsis">${song.singer.map(s=>s.name).join("")}</div>
+			</a>
 			</li>`
 			).join("")
 		this.$songs.insertAdjacentHTML("beforeend", html) //insertAdjacentHTML 不会像innerHTML一样破坏掉已存在的元素

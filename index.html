@@ -11,8 +11,9 @@
 <body>
 	<header id="header">
 		<div class="header-inner">
-			<h1>QQ 音乐</h1> <!--给搜引擎看的-->
-			<img src="./images/logo_ch.svg" alt="logo" id="logo">
+			<h1>QQ 音乐</h1> 给搜引擎看的
+			<a href="/"><img src="./images/logo_ch.svg" alt="logo" id="logo"></a>
+			<button id="player-btn">播放器</button>
 		</div>
 	</header>
 	<nav class="nav-bar">
@@ -31,7 +32,6 @@
 			</div>
 		</div>
 		<div id="rank-view" class="hide tab-content">
-			<ul></ul>
 		</div>
 		<div id="search-view" class="hide tab-content">
 			<div class="search-bar">
@@ -50,14 +50,32 @@
 				<div class="loading-done hide">已加载全部</div>
 			</div>
 		</div>
+		<div id="player" class="hide">
+			<div class="player-main">
+				<div class="bg"><img src=""></div>
+				<div class="song-info">
+					<div class="song-info-hd">
+						<h1 class="song-name"></h1>
+						<h2 class="singer-name"></h2>
+					</div>
+					<div class="song-bd">
+						<div class="album-cover show"><img src="" class="album-img"></div>
+						<div class="lyric hide">
+						</div>
+					</div>
+					<div class="options">
+						<span class="opt-item">MV</span>
+						<span class="opt-item music-btn icon-play"></span>
+						<a href="#" class="opt-item"><i class="fas fa-heart"></i></a>
+					</div>
+					<div class="progress"></div>
+					<div class="download"><a href="#">下载歌曲</a></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<footer class="mod_footer"><div class="version_tab"><a href="https://y.qq.com/?ADTAG=myqq&amp;nomobile=1#type=index">查看电脑版网页</a></div><div class="footer_logo">QQ音乐</div></footer>
-    <script type="text/javascript" src="./script/lazyloader.js"></script>
-    <script type="text/javascript" src="./script/search.js"></script>
-	<script type="text/javascript" src="./script/slider.js"></script>
-	<script type="text/javascript" src="./script/tab.js"></script>
-	<script type="text/javascript" src="./script/app.js"></script>
-	<script type="text/javascript" src="./script/rank.js"></script>
-	
+	<script type="module" src="./script/app.js"></script> <!-- 支持ES6的浏览器调用这个script -->
+	<script nomodule src="./dist/app.js"></script>	<!-- 不支持ES6的浏览器调用这个script -->
 </body>
 </html>
